@@ -18,7 +18,7 @@ public class DataBaseAdapter {
     /**
      * Versión de la base de datos.
      */
-    private int DATABASE_VERSION = 1;
+    private int DATABASE_VERSION = 4;
 
     /**
      *  Aplicación que utiliza la base de datos.
@@ -28,7 +28,7 @@ public class DataBaseAdapter {
     /**
      * Helper para abrir y/o actualizar la base de datos.
      */
-    private DataBaseHelper dbHelper;
+    protected DataBaseHelper dbHelper;
 
     /**
      * Base de datos.
@@ -43,7 +43,7 @@ public class DataBaseAdapter {
     /**
      * Abre la conexió a la base de datos.
      */
-    protected void Open(){
+    public void Open(){
         try{
             db = dbHelper.getWritableDatabase();
         }catch (Exception ex){
@@ -54,7 +54,7 @@ public class DataBaseAdapter {
     /**
      * Cierra la conexión a la base de datos.
      */
-    protected void  Close(){
+    public void  Close(){
         try{
             db.close();
         }catch (Exception ex){

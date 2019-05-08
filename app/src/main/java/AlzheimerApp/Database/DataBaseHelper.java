@@ -16,7 +16,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private String DATABASE_CREATE = "";
 
     /**
-     * Nombre de la tabla.
+     * Script para actualizar la tabla en la base de datos.
      */
     private String DATABASE_UPGRADE = "";
 
@@ -37,14 +37,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("");
+
+        Log.w(DataBaseHelper.class.getName(), "Upgrading from version " +oldVersion + " to " +newVersion + ", which will destroy all old data");
+
+        db.execSQL(DATABASE_UPGRADE);
+
+        onCreate(db);
     }
 
     public void SetScriptCreateDatabase(String databaseCreate){
         DATABASE_CREATE = databaseCreate;
     }
 
-    public void SetDatabaseTable(String databaseUpgrade){
+    public void SetScriptUpgradeDatabase(String databaseUpgrade){
         DATABASE_UPGRADE = databaseUpgrade;
     }
 }
