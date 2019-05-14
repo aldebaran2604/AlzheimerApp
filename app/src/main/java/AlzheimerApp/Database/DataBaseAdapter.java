@@ -35,6 +35,9 @@ public class DataBaseAdapter {
      */
     private SQLiteDatabase db;
 
+    public DataBaseAdapter(){
+    }
+
     public DataBaseAdapter(Context _context){
         context = _context;
         dbHelper = new DataBaseHelper(_context, DATABASE_NAME, null, DATABASE_VERSION);

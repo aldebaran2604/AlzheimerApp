@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.activeandroid.ActiveAndroid;
 
+import java.util.List;
+
 import AlzheimerApp.Database.Sexo;
 import AlzheimerApp.Database.User;
 
@@ -18,12 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         User user = new User(getApplicationContext());
         user.Open();
-        user.nombre = "luis jose";
-        user.apellidoPaterno = "Padilla";
-        user.apellidoMaterno = "Benitez";
-        user.sexo = Sexo.Masculino;
-        user.password = "12345";
-        user.DBInser();
+        List<User> users =user.GetAll();
         user.Close();
 
     }
